@@ -11,6 +11,7 @@ const commonConfig = require('./webpack.common.js'); // the settings that are co
  */
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 /**
  * Webpack Constants
@@ -119,13 +120,13 @@ module.exports = webpackMerge(commonConfig, {
     }),
 
     /**
-       * Plugin: NamedModulesPlugin (experimental)
-       * Description: Uses file names as module name.
-       *
-       * See: https://github.com/webpack/webpack/commit/a04ffb928365b19feb75087c63f13cadfc08e1eb
-       */
-      new NamedModulesPlugin(),
-
+     * Plugin: NamedModulesPlugin (experimental)
+     * Description: Uses file names as module name.
+     *
+     * See: https://github.com/webpack/webpack/commit/a04ffb928365b19feb75087c63f13cadfc08e1eb
+     */
+    new NamedModulesPlugin(),
+    new DashboardPlugin()
   ],
 
   /**
